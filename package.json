@@ -1,0 +1,26 @@
+{
+  "name": "smash-family",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production parcel build ./index.html --no-cache --public-url https://adrien-gueret.github.io/smash-family/",
+    "start": "cross-env NODE_ENV=production ts-node ./scripts/server/index.ts",
+    "serve": "concurrently \"yarn serve:client\" \"yarn serve:server\"",
+    "serve:client": "cross-env NODE_ENV=development parcel serve ./index.html",
+    "serve:server": "nodemon"
+  },
+  "author": "Adrien GUERET",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.17.4",
+    "parcel-bundler": "^1.9.7"
+  },
+  "dependencies": {
+    "camelcase": "^5.0.0",
+    "cross-env": "^5.2.0",
+    "ludumjs": "^3.2.0",
+    "ts-node": "^6.0.3",
+    "typescript": "^2.8.3",
+    "unique-names-generator": "^2.0.1"
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "watch": ["./scripts/server", "./node_modules/ludumjs/src/server"],
+    "ext": "ts",
+    "exec": "ts-node ./scripts/server/index.ts",
+    "ignoreRoot": []
+}

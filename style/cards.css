@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+
+:root {
+    --card-width: 285px;
+    --card-height: 140px;
+    --scale-base: 1;
+}
+
+.card {
+    --sprite-column: 0;
+    --sprite-row: 0;
+    --background-color: #fff;
+    width: var(--card-width);
+    height: var(--card-height);
+    font-family: 'Luckiest Guy', cursive;
+    float: left;
+    transform: scale(var(--scale-base));
+    transition: transform 200ms;
+    perspective: 1000px;
+}
+
+.card__container {
+    transition: all 450ms;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.card--face-down .card__container {
+    transform: rotateY(180deg);
+}
+
+.card__front, .card__back {
+    width: var(--card-width);
+    height: var(--card-height);
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 5px solid #444;
+    border-radius: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.card__front {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 2;
+    transform: rotateY(0);
+    background: linear-gradient(to right, #fff 45%, var(--background-color));
+}
+
+.card__back {
+    background: #CCC;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+}
+
+.card__illustration {
+    background-image: url(./characters.png);
+    background-repeat: no-repeat;
+    background-position: calc((100% / 3) * var(--sprite-column)) calc((100% / 4) * var(--sprite-row)); 
+    height: 0;
+    width: 45%;
+    padding-top: 45%;
+    background-size: 400%;
+    flex-shrink: 0;
+}
+
+.card__details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+
+.card__name {
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    line-height: 1rem;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,.5) 50%, transparent);
+    padding: 0 10px;
+}
+
+.card__symbol {
+    --sprite-column: 0;
+    --sprite-row: 0;
+    background-image: url(./symbols.png);
+    background-repeat: no-repeat;
+    background-position: calc((100% / 3) * var(--sprite-column)) calc((100%) * var(--sprite-row)); 
+    height: 0;
+    width: 40%;
+    padding-top: 40%;
+    background-size: 400%;
+}
+
+.card__back .card__symbol {
+    width: 100%;
+    background-size: 80%;
+    background-position: center;
+}
+
+.card__family {
+    display: flex;
+    flex-direction: row;
+}
+
+.card__characterIcon {
+    background-image: url(./characters-icons.png);
+    background-repeat: no-repeat;
+    background-position: calc((100% / 3) * var(--sprite-column)) calc((100% / 4) * var(--sprite-row)); 
+    height: 32px;
+    width: 32px;
+    opacity: .3;
+}
+
+.card__characterIcon--active {
+    opacity: 1;
+}

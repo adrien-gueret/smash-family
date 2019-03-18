@@ -1,0 +1,29 @@
+@media (max-width: 1400px) {
+    :root {
+        --scale-base: .9;
+    }
+}
+
+@media (max-width: 1250px) {
+    :root {
+        --scale-base: .8;
+    }
+}
+
+@media (max-width: 1190px) {
+    :root {
+        --scale-base: .7;
+    }
+}
+
+@media (max-width: 850px) {
+    :root {
+        --scale-base: .6;
+    }
+}
+
+@media (max-width: 650px) {
+    :root {
+        --scale-base: .5;
+    }
+}
